@@ -1,5 +1,5 @@
 {
-  "name": "exchange_engine",
+  "name": "exchange_restful",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -16,6 +16,7 @@ export class Exchange extends ExchangeBase {
         this.config = new ConfigManagment()
         this.profile = new GmailProfile("*", "*")
         this.wallet = new LocalWallet("*", this.config)
+        console.log("Exchange engine start.")
     }
 
     public setProfile(
