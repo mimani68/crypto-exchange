@@ -1,5 +1,13 @@
 # Exchange library for cryptocurrencies
 
+> Only use in development environment please
+
+## Development
+
+```bash
+npm run start
+```
+
 ## Usage
 
 ```bash
