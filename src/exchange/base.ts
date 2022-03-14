@@ -1,9 +1,12 @@
-import { IExchange } from "./interface/exchange.interface"
 import { message } from "./i18n"
+import { IExchange, IWallet } from "./interface"
 
 export class ExchangeBase implements IExchange {
 
-    console: any
+    protected console: any
+    protected profile: any;
+    protected wallet: IWallet;
+    protected config: any;
 
     constructor() {}
 
@@ -47,7 +50,7 @@ export class ExchangeBase implements IExchange {
         return null
     }
     public async start(): Promise<any> {
-        console.log(message.START_CORRECTLY)
+        this.console.log(message.START_CORRECTLY)
         return null
     }
 }

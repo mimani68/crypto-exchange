@@ -17,4 +17,22 @@ exchange.setRemoteLogCollector(ENUM.logServer.RSYS_LOG, "udp://rsyslog:517")
 exchange.setPolicy(ENUM.policy.BTC_DAILY_WITHDRAW, 0.25)
 exchange.start()
 
-exchange.transfer('23', '214324', '234', 200)
+const Koa = require('koa');
+const Router = require('@koa/router');
+const app = new Koa();
+const router = new Router();
+
+router.use(async ctx => {
+    exchange.setProfile("oauth", { id: "ali", username: "mimani68"}, { role: "admin" })
+});
+
+router.get('/', (ctx, next) => {
+    let result = exchange.transfer('ui899947557', '214324', '234', 200)
+    ctx.body = result
+});
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
+
+app.listen(3000);

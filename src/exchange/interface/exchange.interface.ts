@@ -1,5 +1,5 @@
 export interface IExchange {
-    console: any;
+
     setLicense(lisence: string): Promise<any>
     setDefaultLanguage(language: "en"|"fr"): Promise<any>
     setTimezone(timeZone: string): Promise<any>
@@ -14,4 +14,5 @@ export interface IExchange {
     setLogDriver(logDriver: any): void
     setPolicy(typeOfPolicy: string, value: string|number): Promise<any>
     start(): Promise<any>
+
 }
