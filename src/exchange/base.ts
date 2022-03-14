@@ -1,4 +1,4 @@
-import { IExchange } from "./exchange.interface"
+import { IExchange } from "./interface/exchange.interface"
 import { message } from "./i18n"
 
 export class ExchangeBase implements IExchange {
