@@ -1,4 +1,4 @@
-import { Exchange, ENUM } from "./exchange"
+import { Exchange, ENUM } from "@baas/exchange"
 import Koa from 'koa';
 import Router from '@koa/router';
 

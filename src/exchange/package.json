@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cryptocurrencies",
+    "exchange",
+    "Centralized Exchnage"
+  ],
+  "author": "Mahdi Imani",
   "license": "ISC"
 }

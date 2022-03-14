@@ -1,4 +1,4 @@
-# Exchange for cryptocurrencies
+# Exchange library for cryptocurrencies
 
 ## Usage
 
