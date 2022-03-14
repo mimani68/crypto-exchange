@@ -1,4 +1,6 @@
 import { Exchange, ENUM } from "./exchange"
+import Koa from 'koa';
+import Router from '@koa/router';
 
 let exchange = new Exchange()
 exchange.setLicense("aiPh,uThaEx(ut'o9zu#ka6e8f~um1sQh7Zogh)a8xAhR[e")
@@ -17,18 +19,23 @@ exchange.setRemoteLogCollector(ENUM.logServer.RSYS_LOG, "udp://rsyslog:517")
 exchange.setPolicy(ENUM.policy.BTC_DAILY_WITHDRAW, 0.25)
 exchange.start()
 
-const Koa = require('koa');
-const Router = require('@koa/router');
+
 const app = new Koa();
 const router = new Router();
 
-router.use(async ctx => {
+router.use(async (ctx: any, next: Koa.Next) => {
     exchange.setProfile("oauth", { id: "ali", username: "mimani68"}, { role: "admin" })
+    next()
+
 });
 
-router.get('/', (ctx, next) => {
-    let result = exchange.transfer('ui899947557', '214324', '234', 200)
-    ctx.body = result
+router.post('/transfer', async (ctx: any) => {
+    let result = await exchange.transfer(ctx.request.id, ctx.request.fromToken, ctx.request.toToken, ctx.request.amount)
+    let response = {
+        success: true,
+        data: result
+    }
+    ctx.body = response
 });
 
 app

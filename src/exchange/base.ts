@@ -4,10 +4,7 @@ import { IExchange, IWallet } from "./interface"
 export class ExchangeBase implements IExchange {
 
     protected console: any
-    protected profile: any;
-    protected wallet: IWallet;
-    protected config: any;
-
+    
     constructor() {}
 
     public async setLicense(lisence: string): Promise<any> {

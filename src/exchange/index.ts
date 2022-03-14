@@ -1,13 +1,21 @@
 import { ExchangeBase } from "./base"
-import { OauthProfile, GmailProfile, LocalWallet, TatumWallet } from "./class"
 import { message } from "./i18n"
+import { IConfig, IProfile, IWallet } from "./interface"
+import { OauthProfile, GmailProfile, LocalWallet, TatumWallet, ConfigManagment } from "./class"
 
 export * from './enum'
 
 export class Exchange extends ExchangeBase {
 
+    protected profile: IProfile;
+    protected wallet: IWallet;
+    protected config: IConfig;
+
     constructor() {
         super()
+        this.config = new ConfigManagment()
+        this.profile = new GmailProfile("*", "*")
+        this.wallet = new LocalWallet("*", this.config)
     }
 
     public setProfile(
@@ -26,18 +34,17 @@ export class Exchange extends ExchangeBase {
     }
 
     public async transfer(userId: string, fromTokenId: string, toTokenId: string, amount: number): Promise<any> {
-        const walletType: string = "tatum"
-        switch (walletType) {
+        switch (this.profile.walletType) {
             case "local":
                 this.wallet = new LocalWallet(userId, this.config)
-                this.wallet.transfer(fromTokenId, toTokenId, amount)
-                break;
+                this.console.log(message.TRANSFER_DONE)
+                return this.wallet.transfer(fromTokenId, toTokenId, amount)
             case "tatum":
                 this.wallet = new TatumWallet(userId, this.config)
-                this.wallet.transfer(fromTokenId, toTokenId, amount)
-                break;
+                this.console.log(message.TRANSFER_DONE)
+                return this.wallet.transfer(fromTokenId, toTokenId, amount)
         }
-        this.console.log(message.TRANSFER_DONE)
+        return false
     }
 
 
