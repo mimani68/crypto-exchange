@@ -1,6 +1,6 @@
 import { message } from "./i18n";
 import { IExchange } from "./exchange.interface";
-import { ConfigManagment, GeneralProfile, LocalWallet } from "./class";
+import { ConfigManagment, GeneralProfile, LocalWallet, WalletFactory } from "./class";
 import { IConfig, IProfile, IWallet } from "./class";
 
 export class Exchange implements IExchange {
@@ -13,7 +13,7 @@ export class Exchange implements IExchange {
     constructor() {
         this.config = new ConfigManagment()
         this.profile = new GeneralProfile("*")
-        this.wallet = new LocalWallet("*")
+        this.wallet = new WalletFactory("local", "*")
     }
 
     public async setLicense(lisence: string): Promise<any> {
@@ -61,7 +61,6 @@ export class Exchange implements IExchange {
     }
 
     public async resetUser(): Promise<any> {
-        this.config = new ConfigManagment()
         this.profile = new GeneralProfile("*")
         this.wallet = new LocalWallet("*")
         return Promise.resolve(true)

@@ -1,10 +1,9 @@
 import { message } from "../../i18n";
-import { IWallet } from "../../interface";
-import { GeneralProfile } from "../profile/profile";
 import { LocalWallet } from "./local.wallet";
 import { TatumWallet } from "./tatum.wallet";
+import { IWallet } from "./wallet.interface";
 
-export class WalletProxy {
+export class WalletFactory implements IWallet {
 
     constructor(walletType: string, userId: string) {
         switch (walletType) {
@@ -14,4 +13,9 @@ export class WalletProxy {
                 return new TatumWallet(userId, {})
         }
     }
+
+    transfer(fromTokenId: string, toTokenId: string, amount: number): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+    
 }
