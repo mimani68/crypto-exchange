@@ -1,5 +1,6 @@
 import { Exchange } from "./exchange";
-import { IConfig, IExchange, IProfile, IWallet } from "./interface"
+import { IExchange } from "./exchange.interface";
+import { IConfig, IProfile, IWallet } from "./class";
 
 export * from './enum'
 

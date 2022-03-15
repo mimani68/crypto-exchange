@@ -1,6 +1,7 @@
-import { ConfigManagment, GeneralProfile, LocalWallet } from "./class";
 import { message } from "./i18n";
-import { IProfile, IWallet, IConfig, IExchange } from "./interface";
+import { IExchange } from "./exchange.interface";
+import { ConfigManagment, GeneralProfile, LocalWallet } from "./class";
+import { IConfig, IProfile, IWallet } from "./class";
 
 export class Exchange implements IExchange {
 

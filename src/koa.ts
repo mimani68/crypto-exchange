@@ -1,6 +1,7 @@
-import { ExchangeProxy, ENUM } from "@baas/exchange"
 import Koa from 'koa';
 import Router from '@koa/router';
+
+import { ExchangeProxy, ENUM } from "@baas/exchange"
 
 let exchange = new ExchangeProxy()
 exchange.setLicense("aiPh,uThaEx(ut'o9zu#ka6e8f~um1sQh7Zogh)a8xAhR[e")

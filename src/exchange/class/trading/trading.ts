@@ -1,5 +1,5 @@
 import { message } from "../../i18n";
-import { ITrading } from "../../interface";
+import { ITrading } from "./trading.interface";
 
 export class Trading implements ITrading {
 

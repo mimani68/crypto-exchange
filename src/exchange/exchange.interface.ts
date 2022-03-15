@@ -1,6 +1,6 @@
-import { IConfig } from "./config.interface";
-import { IProfile } from "./profile.interface";
-import { IWallet } from "./wallet.interface";
+import { IConfig } from "./class/config/config.interface";
+import { IProfile } from "./class/profile/profile.interface";
+import { IWallet } from "./class/wallet/wallet.interface";
 
 export interface IExchange {
 

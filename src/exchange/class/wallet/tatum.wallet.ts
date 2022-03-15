@@ -1,5 +1,5 @@
 import { message } from "../../i18n";
-import { IWallet } from "../../interface/wallet.interface";
+import { IWallet } from "./wallet.interface";
 
 export class TatumWallet implements IWallet {
 

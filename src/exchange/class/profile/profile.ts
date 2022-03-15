@@ -1,5 +1,5 @@
 import { message } from "../../i18n";
-import { IProfile } from "../../interface";
+import { IProfile } from "./profile.interface";
 
 export class GeneralProfile implements IProfile {
 
@@ -14,29 +14,30 @@ export class GeneralProfile implements IProfile {
         console.log(message.OATH_USER_CREATED)
     }
 
-    async openNewProfile() {
-        return null
+    public async openNewProfile(): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+    
+    public async verifing(): Promise<any> {
+        throw new Error("Method not implemented.");
     }
 
-    async verifing() {
-        return null
+    public async closeProfile(): Promise<any> {
+        throw new Error("Method not implemented.");
     }
 
-    async closeProfile() {
-        return null
+    public async upgradePlanyOfMembership(): Promise<any> {
+        throw new Error("Method not implemented.");
     }
-
-    async upgradePlanOfMembership() {
-        return null
-    }
-
-    public setProfile(
+    
+    public async setProfile(
         id: string,
-    ) {
+    ): Promise<any> {
         this.profile = new GeneralProfile(id)
+        return Promise.resolve(true)
     }
 
-    public getProfile() {
+    public async getProfile(): Promise<any> {
         return this.profile
     }
 
