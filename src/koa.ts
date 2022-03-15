@@ -1,8 +1,8 @@
-import { Exchange, ENUM } from "@baas/exchange"
+import { ExchangeProxy, ENUM } from "@baas/exchange"
 import Koa from 'koa';
 import Router from '@koa/router';
 
-let exchange = new Exchange()
+let exchange = new ExchangeProxy()
 exchange.setLicense("aiPh,uThaEx(ut'o9zu#ka6e8f~um1sQh7Zogh)a8xAhR[e")
 exchange.loadConfigFile("./my-config.json")
 exchange.setDefaultLanguage("en")
@@ -24,13 +24,14 @@ const app = new Koa();
 const router = new Router();
 
 router.use(async (ctx: any, next: Koa.Next) => {
-    exchange.setProfile("oauth", { id: "ali", username: "mimani68"}, { role: "admin" })
+    exchange.resetUser()
+    exchange.profile.setProfile("bib993h8-fn39v-oh-8928735", "mimani68")
     next()
 
 });
 
 router.post('/transfer', async (ctx: any) => {
-    let result = await exchange.transfer(ctx.request.id, ctx.request.fromToken, ctx.request.toToken, ctx.request.amount)
+    let result = await exchange.wallet.transfer(ctx.request.fromToken, ctx.request.toToken, ctx.request.amount)
     let response = {
         success: true,
         data: result

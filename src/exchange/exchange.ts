@@ -1,11 +1,19 @@
-import { message } from "./i18n"
-import { IExchange, IWallet } from "./interface"
+import { ConfigManagment, GeneralProfile, LocalWallet } from "./class";
+import { message } from "./i18n";
+import { IProfile, IWallet, IConfig, IExchange } from "./interface";
 
-export class ExchangeBase implements IExchange {
+export class Exchange implements IExchange {
 
-    protected console: any
-    
-    constructor() {}
+    public console: any
+    public profile: IProfile;
+    public wallet: IWallet;
+    public config: IConfig;
+
+    constructor() {
+        this.config = new ConfigManagment()
+        this.profile = new GeneralProfile("*")
+        this.wallet = new LocalWallet("*")
+    }
 
     public async setLicense(lisence: string): Promise<any> {
         return null
@@ -50,4 +58,12 @@ export class ExchangeBase implements IExchange {
         this.console.log(message.START_CORRECTLY)
         return null
     }
+
+    public async resetUser(): Promise<any> {
+        this.config = new ConfigManagment()
+        this.profile = new GeneralProfile("*")
+        this.wallet = new LocalWallet("*")
+        return Promise.resolve(true)
+    }
+
 }
