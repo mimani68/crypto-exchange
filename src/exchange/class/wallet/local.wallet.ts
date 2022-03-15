@@ -1,13 +1,30 @@
 import { message } from "../../i18n";
 import { IWallet } from "../../interface/wallet.interface";
+import { GeneralProfile } from "../profile/profile";
 
 export class LocalWallet implements IWallet {
-    constructor(userId: string, config: any) {
-        // console.log(message.GMAIL_USER_CREATED)
+
+    public profile: GeneralProfile;
+
+    constructor(id: string) {
+        this.profile = new GeneralProfile(id)
+        // this.wallet = new LocalWallet(id)
     }
 
-    public transfer(fromTokenId: string, toTokenId: string, amount: number): boolean {
-        console.log("Local fund transfering")
-        return true
+    public async transfer(
+        fromTokenId: string, 
+        toTokenId: string, 
+        amount: number
+    ): Promise<any> {
+        // switch (this.profile.walletType) {
+        //     case "local":
+        //         this.wallet = new LocalWallet(userId, this.config)
+        //         this.console.log(message.TRANSFER_DONE)
+        //         return this.wallet.transfer(fromTokenId, toTokenId, amount)
+        //     case "tatum":
+        //         this.wallet = new TatumWallet(userId, this.config)
+        //         this.console.log(message.TRANSFER_DONE)
+        //         return this.wallet.transfer(fromTokenId, toTokenId, amount)
+        // }
     }
 }

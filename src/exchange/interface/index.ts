@@ -1,4 +1,6 @@
+export * from './trading.interface'
 export * from './exchange.interface'
 export * from './wallet.interface'
 export * from './config.interface'
 export * from './profile.interface'
+export * from './account.interface'

@@ -1,4 +1,4 @@
-# Exchange library for cryptocurrencies
+# Centralized Exchange library for cryptocurrencies
 
 > Only use in development environment please
 

@@ -1,4 +1,13 @@
+import { IConfig } from "./config.interface";
+import { IProfile } from "./profile.interface";
+import { IWallet } from "./wallet.interface";
+
 export interface IExchange {
+
+    console: any
+    profile: IProfile;
+    wallet: IWallet;
+    config: IConfig;
 
     setLicense(lisence: string): Promise<any>
     setDefaultLanguage(language: "en"|"fr"): Promise<any>
@@ -13,6 +22,7 @@ export interface IExchange {
     setRemoteLogCollector(typeOfLogCollector: string, logServerStringAddress: string): Promise<any>
     setLogDriver(logDriver: any): void
     setPolicy(typeOfPolicy: string, value: string|number): Promise<any>
+    resetUser(): Promise<any>
     start(): Promise<any>
 
 }

@@ -3,6 +3,7 @@ let message = {
     TRANSFER_DONE: 'Transfer done.',
     OATH_USER_CREATED: 'Oauth user created.',
     GMAIL_USER_CREATED: 'Gmail user created.',
+    TRADING_OPEN: 'Trading engine started.',
 }
 
 export { message } 

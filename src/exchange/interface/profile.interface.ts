@@ -4,4 +4,11 @@ export interface IProfile {
     authType: "oauth"|"gmail"|"instagram"|"linkedin";
     // transfer(fromTokenId: string, toTokenId: string, amount: number): boolean
 
+    openNewProfile()
+    verifing()
+    closeProfile()
+    upgradePlanOfMembership()
+    setProfile(id: string, username: string)
+    getProfile()
+
 }
